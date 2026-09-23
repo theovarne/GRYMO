@@ -24,7 +24,7 @@ mutation
 lineage
 ```
 
-This is the technical core for [grymo.lol](https://www.grymo.lol/), not a copy of the website. The site currently has a real seed-to-phenotype preview, but its breeding trace, kinship slider and lineage trace are UI simulations. This repository implements those mechanisms locally as reproducible functions. The website has **not yet been switched to this package**; see [the audit and status](docs/status.md).
+This is the technical core for [grymo.lol](https://www.grymo.lol/), not a copy of the website. This repository implements generation, breeding, kinship and lineage as reproducible functions. The browser lab adapter consumes these modules; see [the historical audit and integration status](docs/status.md).
 
 ## Run it
 
@@ -81,7 +81,6 @@ Read the [architecture](docs/architecture.md), [genome spec](docs/genome-spec.md
 
 ## Scope and provenance
 
-The initial local core was ported from the existing vanilla-JavaScript website preview after auditing `gobboo-clone/app.js`. The visible website currently duplicates the founder hash and phenotype logic; package integration is pending. No website UI, CSS, Goblin Speak typography, hero image, or token-control code is included here. This is pre-1.0 experimental code: schema and deterministic vectors may change only with an explicit version bump and changelog entry.
+The initial local core was ported from the existing vanilla-JavaScript website preview after auditing `gobboo-clone/app.js`. The browser lab adapter now consumes the core modules rather than duplicating founder generation. See [browser integration](docs/browser-lab.md) for provenance and renderer versioning; deployment-specific status is shown in the website build metadata. No website UI, CSS, Goblin Speak typography, hero image, or token-control code is included here. This is pre-1.0 experimental code: schema and deterministic vectors may change only with an explicit version bump and changelog entry.
 
 The repository is publicly readable. Reuse terms are pending the maintainer's license decision; see [LICENSE](LICENSE). Contributions are welcome through issues and pull requests under [CONTRIBUTING.md](CONTRIBUTING.md).
-

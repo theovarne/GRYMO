@@ -1,14 +1,20 @@
 import type { Genome } from "../genome/schema.js";
 import { phenotypeView } from "./phenotype.js";
 
-/** Small deterministic SVG specimen, not the site's hand-authored hero PNG. */
+/** Renderer revision 2. Every visual locus affects geometry. Genome v1 is unchanged. */
 export function renderSvg(genome: Genome): string {
-  const view = phenotypeView(genome);
-  const eye = (x: number, y: number, radius: number) => `<circle cx="${x}" cy="${y}" r="${radius}" fill="#f7f8e9" stroke="#10150d" stroke-width="3"/><circle cx="${x}" cy="${y}" r="2.5" fill="#10150d"/>`;
-  const eyes = view.eyeCount === 1 ? eye(60, 47, 9)
-    : view.eyeCount === 3 ? eye(60, 42, 7) + eye(41, 48, 7) + eye(79, 48, 7)
-    : eye(45, 47, 8) + eye(75, 47, 8);
-  const fangs = view.fangCount > 1 ? '<path d="M53 69 l4 10 4-9 M66 70 l4 9 4-11" fill="#f7f8e9" stroke="#10150d" stroke-width="2"/>' : '';
-  const warts = view.wartCount > 3 ? '<circle cx="28" cy="73" r="2" fill="#4e672c"/><circle cx="91" cy="72" r="2" fill="#4e672c"/><circle cx="87" cy="83" r="2" fill="#4e672c"/>' : '';
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Procedural GRYMO goblin"><g shape-rendering="crispEdges"><path d="M22 49 L12 36 L29 40 Q36 22 60 22 Q84 22 91 40 L108 36 L98 52 Q98 75 60 82 Q22 75 22 49Z" fill="${view.skin}" stroke="#10150d" stroke-width="4"/><path d="M38 84 L32 107 L50 107 L60 87 L70 107 L88 107 L82 84" fill="#5c4b2d" stroke="#10150d" stroke-width="4"/>${eyes}<path d="M49 65 Q60 ${65 + view.jawOffset} 71 65" fill="none" stroke="#10150d" stroke-width="3"/>${fangs}${warts}</g></svg>`;
+  const p = genome.phenotype, v = phenotypeView(genome);
+  const n = (x: number) => Number(x.toFixed(3));
+  const outline = '#10150d';
+  const top = n(25 - (p.skull - 1) * 25);
+  const spread = n(14 * p.eye_spread), r = n(5 * p.eye_size);
+  const earX = n(25 - p.ears.size * 13), earY = n(31 + p.ears.droop * 20);
+  const eye = (x: number, y: number) => `<g data-locus="eye"><circle cx="${x}" cy="${y}" r="${r}" fill="#f7f8e9"/><circle cx="${x}" cy="${y}" r="${n(r * .32)}" fill="${outline}" stroke="none"/><path d="M${n(x-r)} ${n(y-r-3)}h${n(2*r)}" transform="rotate(${p.brow} ${x} ${n(y-r-3)})"/></g>`;
+  const eyes = p.eyes === 1 ? eye(60, 45) : eye(n(60-spread),48)+eye(n(60+spread),48)+(p.eyes === 3 ? eye(60,32) : '');
+  const fangs = Array.from({length:v.fangCount}, (_,i) => {
+    const x = 51+i*8; return `<path data-locus="fang" d="M${x} 71l4 ${p.fangs===3?-9:9} 4 ${p.fangs===3?9:-9}Z" fill="#f7f8e9"/>`;
+  }).join('');
+  const positions = [[33,60],[86,63],[29,52],[90,54],[39,72],[80,74]];
+  const warts = positions.slice(0,v.wartCount).map(([x,y])=>`<circle data-locus="wart" cx="${x}" cy="${y}" r="2" fill="#536b30"/>`).join('');
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Procedural GRYMO goblin" data-renderer="2"><g stroke="${outline}" stroke-width="2.5" stroke-linejoin="round"><path d="M39 81L33 106H49L60 90L71 106H87L81 81" fill="#5c4b2d"/><path d="M29 41L${earX} ${earY}L27 63Q27 82 60 84Q93 82 93 63L${n(120-earX)} ${earY}L91 41Q83 ${top} 60 ${top}Q37 ${top} 29 41Z" fill="${v.skin}"/>${eyes}<path d="M57 53l${n(10*p.snout)} ${n(7*p.snout)}-14 2" fill="${v.skin}"/><path d="M45 70Q60 ${n(78+(1-p.skull)*12)} 77 69" fill="none"/>${fangs}${warts}</g></svg>`;
 }

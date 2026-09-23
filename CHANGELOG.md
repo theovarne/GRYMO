@@ -1,6 +1,12 @@
 # Changelog
 
-## Unreleased — local core preparation
+## Unreleased — browser lab integration
+
+- Renderer revision 2 maps every visual locus to SVG geometry; genome v1 golden vectors are unchanged.
+- Added renderer sensitivity regression tests and browser recipe/provenance documentation.
+- Browser lab integration is implemented; no npm release, model service or Solana deployment is implied.
+
+## Initial local core preparation
 
 - Audited the live site's local preview and separated compatible founder generation from UI-only simulations.
 - Added v1 deterministic genome generation, breeding, mutation, behaviour, lineage and SVG rendering.
