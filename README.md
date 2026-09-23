@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/grymo-mark.png" alt="GRYMO goblin mark" width="128">
+  <img src="./assets/grymo-goblin.png" alt="GRYMO" width="150">
 </p>
 
 # GRYMO
