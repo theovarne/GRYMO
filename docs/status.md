@@ -16,4 +16,5 @@ Audited source: the current local GRYMO site in `gobboo-clone/app.js` and `index
 | Market environment | Simulated time bucket, no external market data | Excluded |
 | Solana | Conditional mint display and PDA text preview | Architecture types only; no deployed program |
 
-`npm install`, `npm test`, `npm run example` work locally. The package has **not** been published to npm. CI and a draft GitHub-release workflow are included but cannot be observed until the repository is connected and pushed. The live website has **not yet been integrated** with this package. Repository description/topics require a separate metadata update and are tracked as pending until verified. These are pending tasks, not completed capabilities.
+`npm install`, `npm test`, `npm run example` work locally. The package has **not** been published to npm. CI is running on GitHub and passed on the current main branch. The draft GitHub-release workflow is present but has not been triggered. The live website links to this repository, but has **not yet been integrated** with this core package. The requested repository Description, homepage and all ten Topics have been configured and verified. These are pending tasks, not completed capabilities.
+
