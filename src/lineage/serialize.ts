@@ -2,7 +2,7 @@ import { stableStringify } from "../deterministic/normalize.js";
 import { indexLineage, type LineageIndex, type LineageRecord } from "./record.js";
 
 export function serializeLineage(index: LineageIndex): string {
-  return stableStringify([...index.values()].sort((a, b) => a.id.localeCompare(b.id)));
+  return stableStringify([...index.values()].sort((a, b) => a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
 }
 
 export function parseLineage(json: string): LineageIndex {
@@ -17,3 +17,4 @@ function isRecord(value: unknown): value is LineageRecord {
   return typeof item.id === "string" && typeof item.seed === "string" && Number.isInteger(item.generation)
     && (item.parents === null || (Array.isArray(item.parents) && item.parents.length === 2 && item.parents.every(parent => typeof parent === "string")));
 }
+
