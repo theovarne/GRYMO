@@ -6,6 +6,6 @@ Thank you for helping make the mechanisms inspectable. Please open an issue befo
 2. Run `npm test` and `npm run typecheck` before a pull request.
 3. Add a fixed-seed test for any deterministic algorithm change.
 4. Keep browser UI, wallet operations, AI model calls and market data outside `src/` core logic unless explicitly isolated as adapters.
-5. Label unimplemented Solana or voice work as proposals, not live features.
+5. Label unimplemented registry contract or voice work as proposals, not live features.
 
 By contributing, you agree to the [Code of Conduct](CODE_OF_CONDUCT.md). Reuse/licensing terms are currently pending; see [LICENSE](LICENSE). Please do not submit third-party code or art without rights to do so.

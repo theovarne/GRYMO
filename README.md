@@ -38,7 +38,7 @@ npm run example:breed
 npm run example:lineage
 ```
 
-`npm install` installs the compiler; it does not contact Solana, generate a wallet, or call an AI model. `npm test` builds the TypeScript and runs deterministic fixtures. `npm run example` prints a founder genome, website-compatible seed fingerprint, full-genome fingerprint and procedural SVG string.
+`npm install` installs the compiler; it does not contact a chain, generate a wallet, or call an AI model. `npm test` builds the TypeScript and runs deterministic fixtures. `npm run example` prints a founder genome, website-compatible seed fingerprint, full-genome fingerprint and procedural SVG string.
 
 ```ts
 import {
@@ -75,9 +75,9 @@ For a local checkout, import from `./dist/index.js` after `npm run build`. The p
 | Behaviour | Deterministic trait vector and local labels; no AI voice adapter |
 | Lineage | Parent content IDs, local ancestry tree, serialization and kinship estimate |
 | Renderer | Small deterministic SVG specimen; the website hero mark remains a separate artwork |
-| Solana | **Design-only** account/seed proposal; no deployed program, PDA derivation, registry or transaction |
+| Robinhood Chain / EVM | Local deterministic record IDs; future registry architecture only. No deployed contract or transaction execution |
 
-Read the [architecture](docs/architecture.md), [genome spec](docs/genome-spec.md), [breeding rules](docs/breeding.md), [mutation model](docs/mutations.md), [lineage model](docs/lineage.md), [renderer notes](docs/renderer.md), [Solana proposal](docs/solana.md), and [implementation status](docs/status.md).
+Read the [architecture](docs/architecture.md), [genome spec](docs/genome-spec.md), [breeding rules](docs/breeding.md), [mutation model](docs/mutations.md), [lineage model](docs/lineage.md), [renderer notes](docs/renderer.md), [Robinhood Chain proposal](docs/robinhood-chain.md), and [implementation status](docs/status.md).
 
 ## Scope and provenance
 

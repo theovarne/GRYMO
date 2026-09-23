@@ -12,4 +12,4 @@ A founder is reproducible from its normalized seed. A bred organism requires ord
 
 ## Boundaries
 
-Local browser colonies are not global populations. The browser voice is a deterministic template, not an LLM call. Environment-fit scores are illustrative simulations, never returns. Optional public Solana telemetry is read-only; no program, registry, mint, wallet connection or transaction execution is provided by this core. Model adapters and on-chain lineage remain planned.
+Local browser colonies are not global populations. The browser voice is a deterministic template, not an LLM call. Environment-fit scores are illustrative simulations, never returns. Optional Robinhood Chain block/gas telemetry is read-only and separate from simulated markets; no registry contract, token deployment, wallet connection or transaction execution is provided by this core. Local SHA-256 Record IDs are preview content IDs, not published chain records. Model adapters and on-chain lineage remain planned.
