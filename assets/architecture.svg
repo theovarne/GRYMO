@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="170" viewBox="0 0 800 170" role="img" aria-label="GRYMO seed to lineage architecture">
+  <rect width="800" height="170" rx="12" fill="#171d12"/>
+  <g font-family="monospace" font-size="15" text-anchor="middle">
+    <g fill="#b8df7b" stroke="#8eaf60">
+      <rect x="24" y="59" width="98" height="52" rx="5"/>
+      <rect x="153" y="59" width="98" height="52" rx="5"/>
+      <rect x="282" y="59" width="98" height="52" rx="5"/>
+      <rect x="411" y="59" width="98" height="52" rx="5"/>
+      <rect x="540" y="59" width="98" height="52" rx="5"/>
+      <rect x="669" y="59" width="107" height="52" rx="5"/>
+    </g>
+    <g fill="#171d12" stroke="none">
+      <text x="73" y="91">seed</text><text x="202" y="91">genome</text><text x="331" y="91">phenotype</text>
+      <text x="460" y="91">breeding</text><text x="589" y="91">mutation</text><text x="722" y="91">lineage</text>
+    </g>
+    <g fill="#b8df7b"><text x="137" y="91">→</text><text x="266" y="91">→</text><text x="395" y="91">→</text><text x="524" y="91">→</text><text x="653" y="91">→</text></g>
+  </g>
+</svg>

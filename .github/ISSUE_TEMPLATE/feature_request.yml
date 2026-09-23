@@ -1,0 +1,16 @@
+name: Feature request
+description: Propose a core feature or specification change
+title: "feature: "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal
+      description: Distinguish implemented behaviour from proposed behaviour.
+    validations:
+      required: true
+  - type: textarea
+    id: determinism
+    attributes:
+      label: Determinism and compatibility impact

@@ -1,0 +1,24 @@
+{
+  "name": "@theovarne/grymo",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Deterministic digital organisms generated from seeds, genomes, bloodlines and mutations.",
+  "type": "module",
+  "license": "UNLICENSED",
+  "engines": { "node": ">=22.18.0" },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": { ".": { "types": "./dist/index.d.ts", "default": "./dist/index.js" } },
+  "files": ["dist", "README.md", "LICENSE"],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && node --experimental-strip-types --test tests/*.test.ts",
+    "example": "npm run build && node --experimental-strip-types examples/generate.ts",
+    "example:breed": "npm run build && node --experimental-strip-types examples/breed.ts",
+    "example:mutation": "npm run build && node --experimental-strip-types examples/mutate.ts",
+    "example:lineage": "npm run build && node --experimental-strip-types examples/lineage.ts",
+    "example:behaviour": "npm run build && node --experimental-strip-types examples/behaviour.ts"
+  },
+  "devDependencies": { "typescript": "5.9.3" }
+}

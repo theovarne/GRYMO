@@ -1,0 +1,22 @@
+name: Bug report
+description: Report a reproducible core bug
+title: "bug: "
+labels: [bug]
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: What happened?
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Reproduction
+      description: Include seed, parent genomes, lineage and expected/actual output. Never paste private keys.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Node and GRYMO versions
