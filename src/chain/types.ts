@@ -1,15 +1,11 @@
-/** Proposed EVM registry shape. No contract has been deployed. */
-export interface ProposedOrganismRecord {
-  schemaVersion: 1;
-  seed: string;
-  genomeHash: string;
-  parentA: string | null;
-  parentB: string | null;
-  generation: number;
-  mutationFlags: readonly string[];
+/** Explicit parent record references, not display fingerprints. */
+export interface ParentRecordIds {
+  parentA?: string;
+  parentB?: string;
 }
-export const CHAIN_IMPLEMENTATION_STATUS = "LOCAL_PREVIEW_CONTRACT_NOT_DEPLOYED" as const;
-export const ROBINHOOD_CHAIN = Object.freeze({
-  name: "Robinhood Chain", chainId: 4663, gas: "ETH", vm: "EVM",
-  explorer: "https://robinhoodchain.blockscout.com"
-});
+export interface OrganismIdInput {
+  genomeVersion: number;
+  seed: string | number;
+  genomeHash: string;
+}
+export const CHAIN_IMPLEMENTATION_STATUS = "PROPOSED_EVM_REGISTRY_NOT_DEPLOYED" as const;

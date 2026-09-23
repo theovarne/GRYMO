@@ -5,11 +5,26 @@
   "description": "Deterministic digital organisms generated from seeds, genomes, bloodlines and mutations.",
   "type": "module",
   "license": "UNLICENSED",
-  "engines": { "node": ">=22.18.0" },
+  "engines": {
+    "node": ">=22.18.0"
+  },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "exports": { ".": { "types": "./dist/index.d.ts", "default": "./dist/index.js" } },
-  "files": ["dist", "README.md", "LICENSE"],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./chain": {
+      "types": "./dist/chain/index.d.ts",
+      "default": "./dist/chain/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "typecheck": "tsc -p tsconfig.json --noEmit",
@@ -18,7 +33,15 @@
     "example:breed": "npm run build && node --experimental-strip-types examples/breed.ts",
     "example:mutation": "npm run build && node --experimental-strip-types examples/mutate.ts",
     "example:lineage": "npm run build && node --experimental-strip-types examples/lineage.ts",
-    "example:behaviour": "npm run build && node --experimental-strip-types examples/behaviour.ts"
+    "example:behaviour": "npm run build && node --experimental-strip-types examples/behaviour.ts",
+    "lint": "tsc -p tsconfig.json --noEmit --noUnusedLocals --noUnusedParameters --allowUnreachableCode false --allowUnusedLabels false && node scripts/check-boundaries.mjs",
+    "example:record": "npm run build && node --experimental-strip-types examples/record.ts"
   },
-  "devDependencies": { "typescript": "5.9.3" }
+  "devDependencies": {
+    "ethers": "6.17.0",
+    "typescript": "5.9.3"
+  },
+  "dependencies": {
+    "viem": "2.56.8"
+  }
 }

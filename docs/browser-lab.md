@@ -12,4 +12,8 @@ A founder is reproducible from its normalized seed. A bred organism requires ord
 
 ## Boundaries
 
-Local browser colonies are not global populations. The browser voice is a deterministic template, not an LLM call. Environment-fit scores are illustrative simulations, never returns. Optional Robinhood Chain block/gas telemetry is read-only and separate from simulated markets; no registry contract, token deployment, wallet connection or transaction execution is provided by this core. Local SHA-256 Record IDs are preview content IDs, not published chain records. Model adapters and on-chain lineage remain planned.
+Local browser colonies are not global populations. The browser voice is a deterministic template, not an LLM call. Environment-fit scores are illustrative simulations, never returns. Optional Robinhood Chain block/gas telemetry is read-only and separate from simulated markets; no registry contract, token deployment, wallet connection or transaction execution is provided by this core. The deployed browser at core commit `9c8d1f5` still uses its previous SHA-256 preview codec; those IDs are not published chain records. Model adapters and on-chain lineage remain planned.
+
+## Repository codec v2 is not a website deployment
+
+This repository now supplies standard Keccak-256 / ABI EVM record IDs. The website remains pinned to its earlier build: its preview IDs and the new record IDs must not be compared or silently substituted. A separate website integration must vendor the new chain utilities/dependencies, reconstruct ordered parent record references and test stored-recipe compatibility before switching codecs. No website deployment is included in this repository migration. Genome Spec v1 and renderer revision 2 remain identical.

@@ -1,0 +1,35 @@
+{
+  "baselineCommit": "9c8d1f59739543cd4d15a59838c60a5d93f65ddd",
+  "genomeVersion": 1,
+  "rendererRevision": 2,
+  "founders": [
+    {
+      "seed": "1",
+      "fingerprint": "d508903abd560a308915bfe52c063e13",
+      "genomeSha256": "fbcc7977d2f98d6aa132884b15bb899bfbb4593eb7edb8680b23f269d7e76c28",
+      "phenotypeSha256": "b2156ac48a372ac3da4b110d808363831b723b4189c947718b43b3f32018a73e",
+      "svgSha256": "5b5f5143816d2c9857b68a14b42c4b98bbc310333e834cf7e0e860e998b54bf1"
+    },
+    {
+      "seed": "42",
+      "fingerprint": "e94952e7d52f436a52b0efd4ea2304ba",
+      "genomeSha256": "cc4b97f0e96f6fa27e4c0a6f23de7af7b832ba4238e53ea628b0b35e78fb7930",
+      "phenotypeSha256": "a75225cae20c9efba9ff576fefb7998a0301c94e6058b5675a9f4855c8d1668a",
+      "svgSha256": "fa831054ca3a20d8487fe34cfb1bc2f75dcf11a22d9960721407d1f265e102d4"
+    },
+    {
+      "seed": "741190",
+      "fingerprint": "9975fe8bf6b86d6cdf94c733f0d63952",
+      "genomeSha256": "29415b2fe23e859e02205298df62d1078a644781184ed0d51516d521e83d23dc",
+      "phenotypeSha256": "c845e0ebc05d0e672434d6f957a55817c185f84476c5a561277558ba1128831f",
+      "svgSha256": "076eb373211af5ad667d9cc9500251de131d6fc75f2d02ec605fc3f8bb6ed329"
+    },
+    {
+      "seed": "999999",
+      "fingerprint": "941023130f851215af60a33f68733d06",
+      "genomeSha256": "6e1848d83ae8c67fa3af89c3fe7c7b8de0f385ab441541400f6a943761c20c87",
+      "phenotypeSha256": "8eebff7912931c7b3c9ca82ed5faed3000e88171409307a6edc29a4b173a6ebc",
+      "svgSha256": "d520794208141ef184bb6dca77459a6b776a89aa5744b363b31dc28ff92142c5"
+    }
+  ]
+}

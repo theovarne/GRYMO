@@ -18,6 +18,4 @@ export { traceLineage } from "./lineage/tree.js";
 export { serializeLineage, parseLineage } from "./lineage/serialize.js";
 export { phenotypeView } from "./renderer/phenotype.js";
 export { renderSvg } from "./renderer/svg.js";
-export { deriveRecordIds } from "./chain/record-model.js";
-export { CHAIN_IMPLEMENTATION_STATUS, ROBINHOOD_CHAIN } from "./chain/types.js";
-export type { ProposedOrganismRecord } from "./chain/types.js";
+export * from "./chain/index.js";

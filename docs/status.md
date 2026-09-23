@@ -16,8 +16,21 @@ Audited source: the current local GRYMO site in `gobboo-clone/app.js` and `index
 | Market environment | Simulated time bucket, no external market data | Excluded |
 | Former chain adapter (historical) | Conditional token display and address text preview | Superseded by local record IDs and the EVM registry proposal |
 
-`npm install`, `npm test`, `npm run example` work locally. The package has **not** been published to npm. CI is running on GitHub and passed on the current main branch. The draft GitHub-release workflow is present but has not been triggered. A browser lab adapter has now been implemented against the core modules, with replayable local births, recipe validation and renderer revision 2. See `browser-lab.md`; deployment verification is separate from this historical audit. The requested repository Description, homepage and all ten Topics have been configured and verified. npm publication, a license choice and any registry contract deployment remain pending—not completed capabilities.
+## Current package status
 
-## Robinhood Chain migration — 2026-09-24
+Genome, breeding, mutation, behaviour, renderer revision 2 and local lineage are functional. No npm package has been published. The browser adapter is a separately pinned consumer; [browser integration](browser-lab.md) identifies its older record codec. The initial audit above is historical, not a description of every current website feature.
 
-The network narrative now targets Robinhood Chain (EVM, 4663, ETH). Local Record ID derivation is implemented and tested. Registry contract: **NOT DEPLOYED**. Token contract: **NOT PUBLISHED**. Market and Stock Tokens feeds: **SIMULATED / NOT CONNECTED**. Optional network telemetry is read-only and does not drive the market model. Genome, breeding, mutation, ancestry and renderer algorithms remain unchanged. No trading or account integration. See [the exact preview codec and planned contract boundary](robinhood-chain.md).
+| Chain component | Actual status |
+| --- | --- |
+| Network metadata | Defined locally for mainnet 4663 / testnet 46630, ETH, EVM |
+| Keccak/ABI record utility | Implemented locally; codec v2, proposed registry format |
+| Chain adapter / registry | Proposed; no Solidity implementation, NOT DEPLOYED |
+| Token contract | NOT PUBLISHED |
+| Market / Stock Token data | Simulated in website; external adapter PLANNED / NOT CONNECTED |
+| Wallet / transactions / trading | Not implemented and not required |
+
+CI runs typecheck, compiler/boundary lint, tests, build and all examples. Consult the [Actions results](https://github.com/theovarne/GRYMO/actions) for the exact commit's outcome rather than treating this document as a permanent passing badge. Release automation creates drafts on version tags; it does not publish npm or deploy contracts.
+
+Repository Description and homepage remain the technical description and grymo.lol. Topics are separate GitHub metadata, not controlled by Git commits. During this migration audit the old network topic was still present; changing it requires repository administration access. Do not infer a successful Topics update from the source-code migration.
+
+See [the exact codec and future contract boundary](robinhood-chain.md) and [market scope](market-environment.md). No live market feed or chain publication is claimed.
