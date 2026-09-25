@@ -1,15 +1,9 @@
 # Security policy
 
-This is an experimental local library, not a deployed registry contract or trading system. Do not send funds to addresses claimed to be derived by this repository.
+GRYMO is an experimental local library, not a deployed lineage program or trading system. Never send funds to an identifier shown by this package.
 
-For a vulnerability, use GitHub's private vulnerability reporting / security advisory flow **if enabled for this repository**. If it is unavailable, contact the maintainer through their GitHub profile to arrange a private channel; do not post an exploit or secret in a public issue. We have not published an SLA or a dedicated security email address.
+No wallet, private key, signing secret, funded account or model API key is required. The environment example contains only a public RPC and empty Program ID / mint fields. Core does not load environment variables or call a network.
 
-Do not include private keys, wallet seed phrases, API keys, or personal information in reports. Security-sensitive commitments will require a cryptographic design review before any on-chain deployment.
+Display genome fingerprints are non-cryptographic. SHA-256 commitments bind canonical data but do not establish authorship or ownership. A derived PDA is only an address; it does not prove account existence, program deployment, valid ancestry or authorization. Before a program exists, review canonical serialization, record immutability, parent validation, generations, account size, ownership, canonical bumps and publication authorization. No security audit or production readiness is claimed.
 
-## Zero wallet requirements
-
-No private key, wallet, signing secret or funded account is required for any default command. The environment example contains only a public RPC URL and an empty registry-address field; the core never reads it. Dependencies must be installed first, but generation and record calculations then work offline.
-
-Genome fingerprints are non-cryptographic. Keccak record IDs are content commitments, not authenticated ancestry, ownership proofs, deployed addresses or financial instruments. Parent references are validated for format only. Future contracts require independent authorization/replay/ancestry review and tests before deployment. Chain ID and verifying-contract binding would be required for any signed message; the current content ID intentionally has neither.
-
-No Solidity contract, registry, token contract, market feed or trading integration is deployed by this repository. Never send funds to a hash. Dependency audit results are time-specific and do not constitute a security guarantee.
+Use GitHub private vulnerability reporting if enabled; otherwise contact the maintainer to arrange a private channel. Do not post exploit details, private keys, seed phrases, API keys or personal data in public issues. No SLA is published. Dependency scans are point-in-time checks, not security guarantees.

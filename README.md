@@ -30,7 +30,7 @@ npm run example:lineage
 npm run example:record
 ```
 
-`npm install` is also supported. It downloads dependencies from the package registry; it does not contact Robinhood Chain, create a wallet, sign a transaction, send funds, or call an AI model. Core GRYMO execution remains local and deterministic. Lint combines strict TypeScript static checks with offline import/call boundary and documentation-link checks; it is not an ESLint configuration.
+`npm install` is also supported. It downloads dependencies from the package registry; it does not contact Solana, create a wallet, sign a transaction, send funds, or call an AI model. Core GRYMO execution remains local and deterministic. Lint combines strict TypeScript static checks with offline import/call boundary and documentation-link checks; it is not an ESLint configuration.
 
 ```ts
 import {
@@ -55,7 +55,7 @@ Run the example commands above, or use this import from the repository root afte
 - `breed(mother, father, eventSeed, { lineage })` needs both full parent genomes, the same event seed and ancestry input. A child's display seed alone is insufficient.
 - No wall clock, global random source, model call, wallet, RPC or network data affects core outputs.
 - Genome Spec v1 retains its original 32-bit UTF-16 trait hashing. `siteSeedFingerprint` preserves the site's display format; `genomeFingerprint` covers the canonical full genome but is **non-cryptographic**. Neither is a security commitment.
-- Separate chain functions use EVM Keccak-256 and standard ABI encoding. A proposed record ID is not an address, signature, ownership proof or published record.
+- The optional chain layer uses SHA-256 canonical genome commitments and Solana Kit canonical-bump PDA derivation. Display fingerprints, commitments, PDAs and mint addresses are different identifiers.
 - Golden fixtures pin full genomes, phenotypes, fingerprints and SVG bytes for seeds 1, 42, 741190 and 999999. Existing child/breeding and renderer regression tests are preserved.
 
 ## Modules
@@ -68,7 +68,7 @@ Run the example commands above, or use this import from the repository root afte
 | Behaviour | Deterministic behaviour vector and local labels; no model adapter |
 | Lineage | Local ancestry records, traversal and serialization |
 | Renderer | Deterministic SVG specimen; hero artwork is separate |
-| Robinhood Chain | Local EVM-compatible record calculations; design-only registry proposal. No deployed contract, token contract, registry write or transaction |
+| Solana | Proposed PDA account model; no deployed program, public registry, published mint, wallet or transaction |
 
 ## Architecture
 
@@ -88,21 +88,21 @@ Run the example commands above, or use this import from the repository root afte
                     ↓
                  LINEAGE
                     ↓
-           ROBINHOOD CHAIN REGISTRY
+              SOLANA RECORD
                   (planned)
 ```
 
 Voice here means a future model interpreting genome constraints, not an implemented AI service. Core modules never import the chain layer; the optional chain layer consumes core data.
 
-## why Robinhood Chain
+## why Solana
 
-GRYMO is deterministic. Markets are not. The genome defines the organism. Robinhood Chain provides a public financial environment around which a future adapter can be built; this repository does not currently connect a market feed.
+GRYMO derives organisms from seeds. Solana derives program-controlled addresses from a program ID, seeds and a canonical bump. Two deterministic systems, different layers.
 
-A future registry does not need to store the face. It only needs enough provenance to reconstruct and verify the lineage: **store provenance. recompute phenotype.**
+One creates creatures. One can give their history an address. The face stays local; lineage may eventually become public. Deriving a PDA does not create its account or verify the recorded ancestry.
 
-genes are deterministic. markets are not.
+**store provenance. recompute phenotype.**
 
-GRYMO is an independent experimental project built around Robinhood Chain. No affiliation or endorsement by Robinhood is claimed.
+GRYMO is an independent experimental project, not an official Solana project or partner. No lineage program or mint has been deployed by this package.
 
 ## Status
 
@@ -114,20 +114,20 @@ GRYMO is an independent experimental project built around Robinhood Chain. No af
 | Behaviour Genome | Functional |
 | Renderer | Functional — revision 2 |
 | Local Lineage | Functional |
-| Local EVM Record ID utilities | Implemented and tested; proposed codec, not published records |
-| Robinhood Chain Adapter | Proposed |
-| Registry Contract | Not implemented / NOT DEPLOYED |
-| Token Contract | NOT PUBLISHED |
+| Solana PDA Model | Proposed; local commitment and derivation utilities tested |
+| Solana Program | Not deployed |
+| Public Registry | Not deployed |
+| Token Mint | Not published |
 | Market Data Integration | Simulated in the website / planned adapter |
 
-Network metadata: Robinhood Chain mainnet **4663**, testnet **46630**, **ETH** native gas, **EVM**. See [the network definitions and exact record codec](docs/robinhood-chain.md). No contract address is configured.
+Network: **Solana mainnet-beta**. Program: **NOT DEPLOYED**. Mint: **NOT PUBLISHED**. See [the exact PDA model and account proposal](docs/solana.md). No Program ID or mint is configured.
 
-Read the [architecture](docs/architecture.md), [genome spec](docs/genome-spec.md), [breeding rules](docs/breeding.md), [mutation model](docs/mutations.md), [behaviour](docs/behaviour.md), [lineage model](docs/lineage.md), [renderer notes](docs/renderer.md), [Robinhood Chain proposal](docs/robinhood-chain.md), [market environment](docs/market-environment.md), and [implementation status](docs/status.md).
+Read the [architecture](docs/architecture.md), [genome spec](docs/genome-spec.md), [breeding rules](docs/breeding.md), [mutation model](docs/mutations.md), [behaviour](docs/behaviour.md), [lineage model](docs/lineage.md), [renderer notes](docs/renderer.md), [Solana proposal](docs/solana.md), [market environment](docs/market-environment.md), and [implementation status](docs/status.md).
 
 ## Scope and provenance
 
-No wallet is required. No network connection is required for genome generation after installing dependencies. No transaction is signed. No registry contract is currently deployed. No trading, funds management or account integration is included.
+No wallet is required. No network connection is required for genome generation after installing dependencies. No transaction is signed. No lineage program is currently deployed. No trading, funds management or account integration is included.
 
-The initial core was ported from the vanilla-JavaScript website preview after auditing `gobboo-clone/app.js`. Breeding, mutation and ancestry were then implemented as real local functions. UI, CSS, Goblin Speak typography, hero art and token controls remain separate. The website is version-pinned: this repository's new record codec is **not automatically deployed to the website**. See [browser integration](docs/browser-lab.md).
+The initial core was ported from the vanilla-JavaScript website preview after auditing `gobboo-clone/app.js`. Breeding, mutation and ancestry were then implemented as real local functions. UI, CSS, Goblin Speak typography, hero art and token controls remain separate. The website is version-pinned: this repository's new PDA model is **not automatically deployed to the website**. See [browser integration](docs/browser-lab.md).
 
-This is pre-1.0 experimental code. Genome changes require explicit versioning; this chain-only revision does not change Genome Spec v1 or renderer revision 2. Reuse terms await the maintainer's license decision; see [LICENSE](LICENSE). Contributions follow [CONTRIBUTING.md](CONTRIBUTING.md).
+This is pre-1.0 experimental code. Genome changes require explicit versioning; this chain-layer revision does not change Genome Spec v1 or renderer revision 2. Reuse terms await the maintainer's license decision; see [LICENSE](LICENSE). Contributions follow [CONTRIBUTING.md](CONTRIBUTING.md).

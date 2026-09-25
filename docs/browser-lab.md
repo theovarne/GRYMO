@@ -1,19 +1,21 @@
 # Browser lab integration
 
-The website adapter consumes this public core: generation, breeding, kinship, mutation, lineage IDs and SVG rendering. It is not a separate genome implementation.
+The website consumes a pinned build of this public Core. Every release records its exact source commit and SHA-256 file checksums. Updating this repository alone does not deploy the website.
 
-## Renderer revision 2
+## Renderer revision 2 / Genome v1
 
-Genome schema v1 and its golden fingerprints are unchanged. SVG output now responds to every visual locus, including ear size/droop, eye size/spread, brow, snout, exact wart and fang counts. Render hashes therefore differ from renderer revision 1. Pin both genome and renderer versions for visual reconstruction.
+Founder generation, full genomes, phenotypes, breeding, mutations, fingerprints and SVG bytes are unchanged by this chain migration. Visual loci control eye size/spread/count, ears, snout, skull, palette, exact wart count and reversed fangs. The static hero mascot is separate artwork.
 
-## Provenance
+## Local-first behaviour
 
-A founder is reproducible from its normalized seed. A bred organism requires ordered parent genomes, their ancestry and the event seed. A child numeric seed alone is insufficient. The browser stores compact, topologically ordered recipes and verifies imports by replaying them. Fingerprints are non-cryptographic integrity checks, not authenticity, ownership or security proofs.
+One selected specimen drives the face, JSON, behaviour, voice constraints, ugliness and lineage. Default seed 741190 is pre-rendered. Births and their replay recipes persist locally; imports verify the genome and fingerprints by replaying ancestry. New browser exports additionally carry a SHA-256 genome commitment. Older v1 exports remain compatible and still require complete recipe replay.
 
-## Boundaries
+A founder share URL needs a seed. A bred specimen URL must include ordered ancestor seeds and breeding events; its numeric seed alone is insufficient. Browser Back/Forward restores the selection without a reload. Local colony counts do not imply onchain population.
 
-Local browser colonies are not global populations. The browser voice is a deterministic template, not an LLM call. Environment-fit scores are illustrative simulations, never returns. Optional Robinhood Chain block/gas telemetry is read-only and separate from simulated markets; no registry contract, token deployment, wallet connection or transaction execution is provided by this core. The deployed browser at core commit `9c8d1f5` still uses its previous SHA-256 preview codec; those IDs are not published chain records. Model adapters and on-chain lineage remain planned.
+## Solana boundary
 
-## Repository codec v2 is not a website deployment
+No deployed Program ID, registry, mint, wallet or transaction is configured. The PDA model displays its exact seed sizes and cannot finalize without a Program ID. Even a mathematically derived address is NOT ANCHORED until an account is actually published and verified.
 
-This repository now supplies standard Keccak-256 / ABI EVM record IDs. The website remains pinned to its earlier build: its preview IDs and the new record IDs must not be compared or silently substituted. A separate website integration must vendor the new chain utilities/dependencies, reconstruct ordered parent record references and test stored-recipe compatibility before switching codecs. No website deployment is included in this repository migration. Genome Spec v1 and renderer revision 2 remain identical.
+Optional read-only RPC measures slots, block height, health and recent performance only. DEX activity, liquidity, volatility and priority-pressure scenarios remain SIMULATED. Failure clears the live state and falls back explicitly. No fabricated network values, trading signals or order execution.
+
+The website voice is a deterministic local template, not a hosted model. Storage timestamps are UTC, display uses America/New_York with ET.

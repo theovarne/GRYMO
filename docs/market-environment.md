@@ -1,32 +1,11 @@
-# Market environment — simulated / planned
+# Solana environment — simulated scenarios and read-only telemetry
 
-Genes are deterministic. Markets are not. A market snapshot is **external input**, never an implicit input to genome generation, breeding, mutation or SVG rendering. Core organisms must work completely offline.
+GENOME + ENVIRONMENT = BEHAVIOURAL RESPONSE. Environment is explicit external input, never an implicit input to the stored genome. Core works offline.
 
-The website's current environment is **SIMULATED**. VOL / LIQ / MOM controls affect a local character response. Optional block/gas telemetry is network observation, not an asset price, volatility estimate or real liquidity feed. The core package does not fetch it. AI voice interprets personality; it is not an execution layer.
+Behaviour fields stay greed, fear, patience, risk_tolerance, herd_instinct, conviction, loss_aversion, volatility_affinity and drift. These are character/instinct traits, not trading signals.
 
-Behaviour fields keep their existing schema names:
+The website exposes SIMULATED network load, DEX activity, liquidity, volatility, priority pressure and slot activity. The existing VOL / LIQ / MOM controls affect local template responses without changing the organism.
 
-```text
-greed, fear, patience, risk_tolerance, herd_instinct,
-conviction, loss_aversion, volatility_affinity, drift
-```
+Opt-in SOLANA RPC mode reads actual slot, block height, health and recent performance from a fixed mainnet-beta endpoint. These observations do not measure DEX volume, market liquidity, asset volatility or priority fees. Those fields remain SIMULATED even while telemetry is live. Failed, malformed or stale samples must fall back explicitly; never fabricate LIVE measurements.
 
-## Future adapter boundary — design only
-
-```ts
-interface MarketEnvironment {
-  source: string;
-  observedAt: string;
-  mode: "SIMULATED" | "READ_ONLY";
-  volatility: number;
-  liquidity: number;
-  momentum: number;
-}
-interface MarketEnvironmentAdapter {
-  snapshot(): Promise<MarketEnvironment>;
-}
-```
-
-These interfaces illustrate a future integration, not exported functional adapters. `LocalSimulatedEnvironment` is a proposed class name; the existing browser uses its own local simulation functions. `RobinhoodMarketEnvironment` is **PLANNED / NOT IMPLEMENTED**. The official [Stock Token APIs](https://docs.robinhood.com/chain/stock-token-apis/) may be evaluated for assets, prices and corporate actions. Verify the current official API path, availability, permissions and terms before building an adapter; none is connected here.
-
-Persist source, timestamp, units and the exact snapshot for replay. Reject stale/malformed data, clearly label simulation fallbacks, and never convert a network failure into invented measurements. Future observations must not alter a stored genome. There is no order placement, account connection, signing, fund management or trading MCP integration.
+Future market adapters remain PLANNED. Persist source, timestamps and exact observations for replay; reject stale data and label simulation fallbacks. No wallet, API key, signing, fund management, order placement or trading is part of this package.

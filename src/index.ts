@@ -18,4 +18,3 @@ export { traceLineage } from "./lineage/tree.js";
 export { serializeLineage, parseLineage } from "./lineage/serialize.js";
 export { phenotypeView } from "./renderer/phenotype.js";
 export { renderSvg } from "./renderer/svg.js";
-export * from "./chain/index.js";
